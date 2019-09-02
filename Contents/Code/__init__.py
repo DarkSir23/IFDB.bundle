@@ -1,7 +1,7 @@
 import re
 
 # URLS
-IFDB_BASE_URL = 'http://ifdb.fanedit.org/'
+IFDB_BASE_URL = 'https://ifdb.fanedit.org/'
 IFDB_BASE_SEARCH_URL = IFDB_BASE_URL + 'fanedit-search/search-results/'
 IFDB_SEARCH_URL = IFDB_BASE_SEARCH_URL + '?query=%s&scope=title&keywords=%s&order=alpha'
 IFDB_MOVIE_INFO_URL = IFDB_BASE_URL + '?p=%s'
@@ -33,7 +33,10 @@ class IFDBAgent(Agent.Movies):
   name = 'Internet Fanedit Database'
   languages = [Locale.Language.English]
   primary_provider = True
-
+  #accepts_from = ['com.plexapp.agents.localmedia', 'com.plexapp.agents.thetvdb']
+  accepts_from = ['com.plexapp.agents.localmedia', 'com.plexapp.agents.themoviedb']
+  #contributes_to = ['com.plexapp.agents.thetvdb']
+  
   ##### If logging pref turned on, output log message #####
   def Log(self, message, *args):
         if Prefs['debug']:
